@@ -11,6 +11,7 @@ recognition.onstart = function () {
 
 recognition.onresult = function (event) {
 	const transcript = event.results[0][0].transcript;
+	console.log(event.results[0][0].transcript);
 	outputElement.textContent = transcript;
 
 	const utterance = new SpeechSynthesisUtterance(transcript);
@@ -20,7 +21,7 @@ recognition.onresult = function (event) {
 	synth.speak(utterance);
 
 	utterance.voice = synth.getVoices().find(function (voice) {
-		return voice.name === 'Google US English';
+		return voice.name === 'Google US english';
 	});
 
 	utterance.pitch = 1;
