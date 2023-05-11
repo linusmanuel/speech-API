@@ -1,7 +1,7 @@
 const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 const synth = window.speechSynthesis;
-const outputElement = document.querySelector('[data-result]');
+const elementoChute = document.querySelector('#chute');
 
 recognition.lang = 'pt-Br';
 
@@ -9,24 +9,18 @@ recognition.onstart = function () {
 	console.log('Speech recognition funciounou');
 };
 
-recognition.onresult = function (event) {
-	const transcript = event.results[0][0].transcript;
-	console.log(event.results[0][0].transcript);
-	outputElement.textContent = transcript;
+recognition.addEventListener('result', onSpeak);
 
-	const utterance = new SpeechSynthesisUtterance(transcript);
+function onSpeak(e) {
+	const chute = e.results[0][0].transcript;
+	exibeChuteNaTela(chute);
+}
 
-	utterance.voice = synth.getVoices()[0];
-
-	synth.speak(utterance);
-
-	utterance.voice = synth.getVoices().find(function (voice) {
-		return voice.name === 'Google US english';
-	});
-
-	utterance.pitch = 1;
-	utterance.rate = 1;
-	utterance.volume = 1;
-};
+function exibeChuteNaTela(chute) {
+	elementoChute.innerHTML = `
+    <div>Você disse:</div>
+    <span class="box">${chute}</span>
+  `;
+}
 
 recognition.start();
