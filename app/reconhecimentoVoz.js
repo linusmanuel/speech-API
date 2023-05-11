@@ -5,14 +5,11 @@ const elementoChute = document.querySelector('#chute');
 
 recognition.lang = 'pt-Br';
 
-recognition.onstart = function () {
-	console.log('Speech recognition funciounou');
-};
-
 recognition.addEventListener('result', onSpeak);
 
 function onSpeak(e) {
 	const chute = e.results[0][0].transcript;
+	console.log(e.target.lang);
 	exibeChuteNaTela(chute);
 }
 
