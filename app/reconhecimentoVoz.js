@@ -9,8 +9,8 @@ recognition.addEventListener('result', onSpeak);
 
 function onSpeak(e) {
 	const chute = e.results[0][0].transcript;
-	console.log(e.target.lang);
 	exibeChuteNaTela(chute);
+	verificaChute(chute);
 }
 
 function exibeChuteNaTela(chute) {
