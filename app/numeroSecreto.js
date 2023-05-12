@@ -1,4 +1,4 @@
-const menorValor = 10;
+const menorValor = 0;
 const maiorValor = 400;
 
 function geraNumeroAleatorio() {
@@ -10,3 +10,4 @@ const elementoMenorValor = document.querySelector('#menor-valor');
 elementoMaiorValor.innerHTML = maiorValor;
 elementoMenorValor.innerHTML = menorValor;
 const numeroSecreto = geraNumeroAleatorio();
+console.log(numeroSecreto);

@@ -31,6 +31,10 @@ h1 {
   font-weight: 300;
 }
 
+h2 {
+  font-size: 4em;
+}
+
 h3 {
   font-size: 2em;
   font-weight: 300;
@@ -48,4 +52,16 @@ h3 {
   font-size: 5em;
   margin-block: 20px;
 
+}
+
+.btn-jogar {
+  padding: 8px 15px;
+  border: transparent;
+  border-radius: 8px;
+  background-color: var(--primary);
+}
+
+.btn-jogar:hover {
+  background-color: var(--bg-color);
+  border: solid 3px var(--primary);
 }
